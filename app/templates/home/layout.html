@@ -21,7 +21,7 @@
             border: 1px solid #ccc
         }
     </style>
-    {% block css %}{% endblock %}
+    {% block css  %}{% endblock %}
 </head>
 
 <body>
@@ -46,8 +46,7 @@
                 <div class="form-group input-group">
                     <input type="text" class="form-control" placeholder="请输入电影名！">
                     <span class="input-group-btn">
-                        <a class="btn btn-default" href="{{ url_for('home.search') }}"><span
-                                class="glyphicon glyphicon-search"></span>&nbsp;搜索</a>
+                        <a class="btn btn-default" href="{{ url_for('home.search') }}"><span class="glyphicon glyphicon-search"></span>&nbsp;搜索</a>
                     </span>
                 </div>
             </form>
@@ -68,7 +67,7 @@
                             class="glyphicon glyphicon-log-out"></span>&nbsp;退出</a>
                 </li>
                 <li>
-                    <a class="curlink" href="{{ url_for('home.user') }}"><span class="glyphicon glyphicon-user"></span>&nbsp;会员</a>
+                    <a class="curlink" href="{{ url_for("home.user") }}"><span class="glyphicon glyphicon-user"></span>&nbsp;会员</a>
                 </li>
             </ul>
         </div>
