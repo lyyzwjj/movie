@@ -1,17 +1,18 @@
 # coding:utf8
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+
 from datetime import datetime
+from app import db
 from urllib import parse
 from sqlalchemy.engine import create_engine
 import pymysql
 
-app = Flask(__name__)
+
+# app = Flask(__name__)
 # engine = create_engine('mysql+pymysql://root:%s@129.204.35.106:3306/movie' % parse.unquote_plus('Wzzst310@163.com'))
 # app.config["SQALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:Wzzst310@127.0.0.1:3306/movie"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:Wzzst310@163.com@129.204.35.106:3306/movie"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
-db = SQLAlchemy(app)
+# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:Wzzst310@163.com@129.204.35.106:3306/movie"
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+# db = SQLAlchemy(app)
 
 
 # datetime
@@ -134,6 +135,10 @@ class Admin(db.Model):
 
     def __repr__(self):
         return "<Role %r" % self.name
+
+    def check_pwd(self, pwd):
+        from werkzeug.security import check_password_hash
+        return check_password_hash(self.pwd, pwd)
 
 
 # 管理员登录日志
